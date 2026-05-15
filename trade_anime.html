@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Trade Anime</title>
+
+<style>
+html, body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#dcdcdc;
+}
+
+.stage{
+    position:relative;
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+
+    background-image:url("loop_background.png");
+    background-repeat:repeat-x;
+    background-size:auto 90%;
+    background-position:0 bottom;
+
+    animation:bgMove 24s linear infinite;
+}
+
+@keyframes bgMove{
+    from{
+        background-position:0 bottom;
+    }
+
+    to{
+        background-position:1600px bottom;
+    }
+}
+
+.character{
+    position:absolute;
+
+    left:50%;
+
+    /* さらに下 */
+    bottom:-25%;
+
+    width:90vmin;
+    height:90vmin;
+
+    min-width:700px;
+    min-height:700px;
+
+    max-width:1200px;
+    max-height:1200px;
+
+    transform:translateX(-50%);
+
+    animation:bob 0.65s ease-in-out infinite;
+}
+
+@keyframes bob{
+    0%,100%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(-10px);
+    }
+}
+
+.character img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.walk1{
+    animation:walk1 0.65s steps(1) infinite;
+}
+
+.walk2{
+    animation:walk2 0.65s steps(1) infinite;
+}
+
+@keyframes walk1{
+    0%,49%{
+        opacity:1;
+    }
+
+    50%,100%{
+        opacity:0;
+    }
+}
+
+@keyframes walk2{
+    0%,49%{
+        opacity:0;
+    }
+
+    50%,100%{
+        opacity:1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stage">
+    <div class="character">
+        <img src="walk1.png" class="walk1">
+        <img src="walk2.png" class="walk2">
+    </div>
+</div>
+
+</body>
+</html>
